@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "11106957875",
+    "project_id": "learning-food-delivery-app",
+    "storage_bucket": "learning-food-delivery-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11106957875:android:0fd1b52a76e4bd53244146",
+        "android_client_info": {
+          "package_name": "com.example.learning_food_delivery_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmZ-U2-iTsRz964W8_zVfmr43hl6l__T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
