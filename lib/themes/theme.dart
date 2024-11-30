@@ -6,6 +6,7 @@ ThemeData lightMode = ThemeData(
     surface: Colors.grey.shade300,
     primary: Colors.grey.shade500,
     secondary: Colors.grey.shade200,
+    tertiary: Colors.white,
     inversePrimary: Colors.grey.shade900,
   ),
 );
@@ -13,10 +14,10 @@ ThemeData lightMode = ThemeData(
 // Defines the dark theme for the app
 ThemeData darkMode = ThemeData(
   colorScheme: ColorScheme.dark(
-    surface: Colors.grey.shade900,
-    primary: Colors.grey.shade600,
-    secondary: const Color.fromARGB(255, 55, 55, 55),
-    tertiary: Colors.white,
+    surface: const Color.fromARGB(255, 20, 20, 20),
+    primary: const Color.fromARGB(255, 122, 122, 122),
+    secondary: const Color.fromARGB(255, 30, 30, 30),
+    tertiary: const Color.fromARGB(255, 47, 47, 47),
     inversePrimary: Colors.grey.shade300,
   ),
 );
