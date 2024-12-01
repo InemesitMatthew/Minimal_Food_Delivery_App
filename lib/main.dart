@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'auth/login_or_register.dart';
 import 'firebase_options.dart';
-import 'pages/login_page.dart';
 import 'themes/theme_provider.dart';
 
 // heres the tutorial just incase
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: LoginOrRegisterPage(),
       theme: Provider.of<ThemeProvider>(context).themeData,
     );
   }
