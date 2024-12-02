@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => HomePage(),
+        builder: (context) => const HomePage(),
       ),
     );
   }
@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             // logo
             Icon(
-              Icons.lock_open_rounded,
+              Icons.lock_open_outlined,
               size: 100,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),

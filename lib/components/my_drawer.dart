@@ -15,7 +15,7 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 100.0),
             child: Icon(
-              Icons.lock_open_rounded,
+              Icons.lock_open_outlined,
               size: 80,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
@@ -31,15 +31,15 @@ class MyDrawer extends StatelessWidget {
           // home list tile
           MyDrawerTile(
             text: "Home",
-            icon: Icons.home,
-            onTap: () {},
+            icon: Icons.home_outlined,
+            onTap: () => Navigator.pop(context),
           ),
 
           // settings list tile
 
           MyDrawerTile(
             text: "Settings",
-            icon: Icons.settings,
+            icon: Icons.settings_outlined,
             onTap: () {
               // pop drawer
               Navigator.pop(context);
@@ -54,7 +54,16 @@ class MyDrawer extends StatelessWidget {
             },
           ),
 
+          const Spacer(),
+
           // logout list tile
+          MyDrawerTile(
+            text: "Logout",
+            icon: Icons.logout_outlined,
+            onTap: () {},
+          ),
+
+          const SizedBox(height: 25),
         ],
       ),
     );
