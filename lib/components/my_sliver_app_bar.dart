@@ -13,8 +13,8 @@ class MySliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 300,
-      collapsedHeight: 100,
+      expandedHeight: 360,
+      collapsedHeight: 120,
       floating: true,
       pinned: true,
       snap: true,

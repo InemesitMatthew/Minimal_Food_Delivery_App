@@ -12,8 +12,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin{
-
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   // tab controller
   late TabController _tabController;
 
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
   }
-  
+
   @override
   void dispose() {
     _tabController.dispose();
@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       drawer: const MyDrawer(),
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
@@ -39,12 +40,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             title: MyTabBar(tabController: _tabController),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Divider(
                   indent: 25,
                   endIndent: 25,
                   color: Theme.of(context).colorScheme.secondary,
                 ),
+
                 // my current location
                 const MyCurrentLocation(),
 
@@ -54,8 +57,22 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             ),
           ),
         ],
-        body: Container(
-          color: Colors.blue,
+        body: TabBarView(
+          controller: _tabController,
+          children: [
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("First tab items"),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("Second tab items"),
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) => Text("Third tab items"),
+            ),
+          ],
         ),
       ),
     );
