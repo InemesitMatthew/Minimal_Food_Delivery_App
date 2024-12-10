@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'auth/login_or_register.dart';
 import 'firebase_options.dart';
+import 'model/restaurant.dart';
 import 'themes/theme_provider.dart';
 
 // heres the tutorial just incase
@@ -12,14 +13,23 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      child: const MyApp(),
-    ),
-  );
+  runApp(MultiProvider(
+    providers: [
+      // theme provider
+      ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+      ),
+
+      // restuarant provider
+      ChangeNotifierProvider(
+        create: (context) => Restaurant(),
+      ),
+    ],
+    child: const MyApp(),
+  ));
 }
 
+// from 34:00 relisten to it cuz u muted it
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

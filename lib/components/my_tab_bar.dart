@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../model/food.dart';
 
 class MyTabBar extends StatelessWidget {
   final TabController tabController;
@@ -8,27 +9,23 @@ class MyTabBar extends StatelessWidget {
     required this.tabController,
   });
 
+  List<Tab> _buildCategoryTabs() {
+    return FoodCategory.values.map((category) {
+      return Tab(
+        text: category.toString().split('.').last,
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TabBar(
+        // after the label there seems to be a underline i do not know how to
+        // get rid of that and i dont mean the line that comes beneath the text 
+        // no theres another line 
         controller: tabController,
-        tabs: const [
-          // 1st tab
-          Tab(
-            icon: Icon(Icons.home_outlined),
-          ),
-
-          // 2nd Tab
-          Tab(
-            icon: Icon(Icons.settings_outlined),
-          ),
-
-          // 3rd Tab
-          Tab(
-            icon: Icon(Icons.person_outline_rounded),
-          ),
-        ],
+        tabs: _buildCategoryTabs(),
       ),
     );
   }
