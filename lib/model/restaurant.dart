@@ -181,7 +181,7 @@ class Restaurant extends ChangeNotifier{
       name: "Loaded Sweet Potato Fries",
       description:
           "Savory sweet potato fries loaded with melted cheese, smoky bacon bits, and a dollop of sour cream.",
-      imagePath: "lib/images/french-fries.jpg",
+      imagePath: "lib/images/sides/french-fries.jpg",
       price: 4.49,
       category: FoodCategory.sides,
       availableAddons: [
@@ -194,7 +194,7 @@ class Restaurant extends ChangeNotifier{
       name: "Crispy Mac & Cheese Bites",
       description:
           "Golden brown, bite-sized mac and cheese balls, perfect for on-the-go snacking. Served with a side of your choice.",
-      imagePath: "lib/images/mac_sides.jpg",
+      imagePath: "lib/images/sides/mac_sides.jpg",
       price: 4.49,
       category: FoodCategory.sides,
       availableAddons: [

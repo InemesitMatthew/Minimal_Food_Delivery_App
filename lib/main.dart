@@ -29,7 +29,7 @@ void main() async {
   ));
 }
 
-// from 34:00 relisten to it cuz u muted it
+// relisten from 43:01 - 46:58
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
