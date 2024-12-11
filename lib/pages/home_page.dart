@@ -8,6 +8,7 @@ import '../components/my_sliver_app_bar.dart';
 import '../components/my_tab_bar.dart';
 import '../model/food.dart';
 import '../model/restaurant.dart';
+import 'food_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -56,7 +57,12 @@ class _HomePageState extends State<HomePage>
           // return food tile UI
           return MyFoodTile(
             food: food,
-            onTap: () {},
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => FoodPage(food: food),
+              ),
+            ),
           );
         },
       );
