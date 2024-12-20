@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../components/my_button.dart';
 import '../components/my_cart_tile.dart';
 import '../model/restaurant.dart';
+import 'payment_page.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -26,7 +27,8 @@ class CartPage extends StatelessWidget {
                     context: context,
                     builder: (context) => AlertDialog(
                       title: const Text(
-                          "Are you sure you want to clear the cart?"),
+                        "Are you sure you want to clear the cart?",
+                      ),
                       actions: [
                         // cancel button
                         TextButton(
@@ -81,7 +83,12 @@ class CartPage extends StatelessWidget {
               // button to pay
               MyButton(
                 text: "Go to checkout",
-                onTap: () {},
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PaymentPage(),
+                  ),
+                ),
               ),
 
               const SizedBox(
