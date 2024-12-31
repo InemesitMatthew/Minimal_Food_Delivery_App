@@ -30,6 +30,7 @@ class DeliveryProgressPage extends StatelessWidget {
           topRight: Radius.circular(40),
         ),
       ),
+      padding: const EdgeInsets.all(25),
       child: Row(
         children: [
           // profile pic of driver
@@ -40,11 +41,66 @@ class DeliveryProgressPage extends StatelessWidget {
             ),
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
             ),
           ),
 
+          const SizedBox(width: 10),
+
           // driver details
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Sen Is Mid",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              Text(
+                "Driver",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+            ],
+          ),
+
+          const Spacer(),
+
+          Row(
+            children: [
+              // message button
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.message_outlined),
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+
+              const SizedBox(width: 10),
+
+              // call button
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.call_outlined),
+                  color: Colors.green,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
