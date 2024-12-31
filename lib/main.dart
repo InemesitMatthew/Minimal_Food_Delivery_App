@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'auth/login_or_register.dart';
+import 'services/auth/login_or_register.dart';
 import 'firebase_options.dart';
 import 'model/restaurant.dart';
 import 'themes/theme_provider.dart';
