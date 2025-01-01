@@ -1,7 +1,9 @@
+// ignore_for_file: use_build_context_synchronously, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import '../components/my_button.dart';
 import '../components/my_textfield.dart';
-import 'home_page.dart';
+import '../services/auth/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -21,18 +23,59 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
 
   // login method
-  void login() {
-    /*
-      fill out auth here..
-    */
+  Future<void> login() async {
+    // get instance of auth service
+    final _authService = AuthService();
 
-    // navigate to home page
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomePage(),
+    // try sign in
+    try {
+      await _authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    }
+    // display any errors
+    catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text(e.toString()),
+        ),
+      );
+    }
+  }
+
+  // forgot password
+  void forgotPW() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        title: const Text("Reset Password"),
       ),
     );
+  }
+
+  // reset password method
+  void resetPassword() async {
+    final email = emailController.text.trim();
+    if (email.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter your email')),
+      );
+      return;
+    }
+
+    try {
+      await AuthService().resetPassword(email);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Password reset email sent')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
+    }
   }
 
   @override
@@ -82,6 +125,28 @@ class _LoginPageState extends State<LoginPage> {
 
             const SizedBox(height: 10),
 
+            // forgot password?
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: resetPassword,
+                    child: Text(
+                      "Reset Password?",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.inversePrimary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 25),
+
             // sign in button
             MyButton(
               text: "Sign In",
@@ -102,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(width: 5),
                 GestureDetector(
-                  onTap: widget.onTap,
+                  onTap: widget.onTap, 
                   child: Text(
                     "Register Now",
                     style: TextStyle(

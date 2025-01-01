@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import '../model/food.dart';
 
@@ -22,8 +24,8 @@ class MyTabBar extends StatelessWidget {
     return Container(
       child: TabBar(
         // after the label there seems to be a underline i do not know how to
-        // get rid of that and i dont mean the line that comes beneath the text 
-        // no theres another line 
+        // get rid of that and i dont mean the line that comes beneath the text
+        // no theres another line
         controller: tabController,
         tabs: _buildCategoryTabs(),
       ),
